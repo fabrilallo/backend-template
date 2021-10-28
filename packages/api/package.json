@@ -1,0 +1,60 @@
+{
+  "name": "@generator-scaffold/api",
+  "version": "0.1.0",
+  "description": "Api package",
+  "keywords": [
+    "api",
+    "fastify",
+    "server"
+  ],
+  "author": "Fabrizio Lallo <fabrizio.lallo95@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "files": [
+    "lib"
+  ],
+  "type": "module",
+  "tap": {
+    "node-arg": [
+      "--no-warnings",
+      "--experimental-loader",
+      "@istanbuljs/esm-loader-hook"
+    ],
+    "nyc-arg": [
+      "--all",
+      "--exclude=**/index.js",
+      "--exclude=**/server.js"
+    ],
+    "branches": "80",
+    "lines": "80",
+    "functions": "80",
+    "statements": "80",
+    "files": "tests/*.test.js"
+  },
+  "scripts": {
+    "format:check": "prettier --check .",
+    "docker-compose": "docker-compose up",
+    "docker-compose:build": "docker-compose up --build",
+    "start": "node lib/server.js",
+    "start:dev": "nodemon",
+    "test": "TESTING=1 tap"
+  },
+  "dependencies": {
+    "@generator-scaffold/storage": "^0.1.0",
+    "arecibo": "^2.0.0",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.22.0",
+    "fastify-autoload": "^3.9.0",
+    "fastify-metrics": "^8.0.0",
+    "fluent-json-schema": "^3.0.1",
+    "http-errors": "^1.8.0"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}

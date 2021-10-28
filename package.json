@@ -1,0 +1,42 @@
+{
+  "name": "generator-scaffold",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "0.0.1",
+  "description": "",
+  "repository": "g",
+  "author": "Fabrizio Lallo <fabrizio.lallo95@gmail.com>",
+  "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "commit": "cz",
+    "start:api:dev": "lerna run docker-compose --scope=api --stream",
+    "build:api:dev": "lerna run docker-compose:build --scope=api --stream",
+    "test:api": "lerna run test --scope=@generator-scaffold/api --stream",
+    "test:storage": "lerna run test --scope=@generator-scaffold/storage --stream"
+
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "^0.1.2",
+    "nodemon": "^2.0.13",
+    "sinon": "^11.1.2",
+    "tap": "^15.0.10",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-lerna-changelog": "^2.0.3",
+    "lerna": "^4.0.0",
+    "prettier": "2.4.1"
+  }
+}
